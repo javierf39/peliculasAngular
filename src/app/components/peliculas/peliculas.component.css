@@ -1,0 +1,11 @@
+/* .container-peliculas {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(auto-fill, 70%);
+} */
+
+
+/* .pelicula {
+    height: 450px;
+} */

@@ -1,0 +1,15 @@
+<div *ngIf="movie">
+    <div class="pelicula" *ngFor="let p of movie">
+        <div class="img-pelicula">
+            <img src="{{p.img}}" alt="">
+        </div>
+        <div class="info">
+            <h1>{{p.nombre}}</h1>
+            <h3>{{p.director}}</h3>
+            <p>{{p.anno}} - {{p.descripcion}}</p>
+            <a [routerLink]="['/editar-pelicula', p.id_pelicula]"><button class="btn btn-secondary">Editar</button></a>
+            <button (click)="eliminarPelicula(p.id_pelicula)" class="eliminar btn ">Eliminar</button>
+        </div>
+
+    </div>
+</div>

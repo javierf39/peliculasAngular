@@ -1,0 +1,33 @@
+<div class="container-form" *ngFor="let pelicula of pelicula">
+    <form #formPelicula="ngForm" (ngSubmit)="onSubmit($event)">
+        <input hidden type="number" name="id_pelicula" [(ngModel)]="pelicula.id_pelicula">
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre película</mat-label>
+            <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="pelicula.nombre" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Año película</mat-label>
+            <input type="number" name="anno" #anno="ngModel" [(ngModel)]="pelicula.anno" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Director película</mat-label>
+            <input type="text" name="director" #director="ngModel" [(ngModel)]="pelicula.director" matInput>
+        </mat-form-field><br>
+        <button type="button" mat-raised-button (click)="inputImg.click()">Subir imagen</button>
+        <div *ngIf="imgObtenida || pelicula.img" class="img-seleccionada">
+            <img [src]='imgObtenida || pelicula.img'>
+        </div>
+        <input hidden (change)="imgSelected($event)" #inputImg type="file" name="img" id="">
+        <input hidden type="text" [(ngModel)]="pelicula.img" name="urlImg"><br><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Categoria</mat-label>
+            <select matNativeControl name="id_categoria" #categoria="ngModel" [(ngModel)]="pelicula.id_categoria">
+                <option *ngFor="let c of categorias" [value]=c.id_categoria>{{c.descripcion}}</option>
+            </select>
+        </mat-form-field><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <!-- <div *ngIf="imgObtenida || pelicula.img" class="img-seleccionada">
+        <img [src]='imgObtenida || pelicula.img'>
+    </div> -->
+</div>
